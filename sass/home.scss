@@ -1,9 +1,85 @@
-html, body {
-  background-color: black;
+html{
+  background-color: grey;
+  height:100%;
 }
 
-.container{
-  width: 50px;
-  height:50px;
-  background-color: greenyellow;
+body{
+  width:50%;
+  height:100%;
+  margin:0 auto;
 }
+
+header{
+  text-align:center;
+  height: 10px;
+
+  h1 {
+    margin-bottom:1em;
+  }
+
+}
+.round{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:250px;
+  width:250px;
+  border-radius:50%;
+  background-color:indianred;
+  margin:auto;
+  position:relative;
+  font-size: 4em;
+  cursor: pointer;
+  z-index: 20;
+  color:cornsilk;
+  overflow: hidden;
+}
+
+.round:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+  z-index: 2;
+  border: 4px solid red;
+}
+
+.fill {
+  position:absolute;
+  content: '';
+  background: greenyellow;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+
+}
+.pomodoroSection {
+  text-align: center;
+  padding: 2em;
+}
+
+.notebook {
+  text-align:center;
+
+  li {
+    margin-bottom:.5em;
+
+    textarea {
+      padding:.5em;
+      border-radius:1em;
+      vertical-align: middle;
+      margin: 0px;
+      height: 50px;
+      width: 250px;
+    }
+  }
+  .date {
+    margin-bottom:1em;
+    display:inline-block;
+  }
+}
+

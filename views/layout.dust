@@ -4,15 +4,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Time manager</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
-    <link src="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
-<body>
+<body ng-app="pomodoroApp"  class="container-fluid">
+    <header class="row">
+        <h1 class="col-xs-12">Time manager</h1>
+    </header>
+    <div class="row">
+        <div class="pomodoroSection col-xs-12 col-md-6" ng-controller="PomodoroController as pomodoro">
+            <div class="round">{{ pomodoro.timeLeft }}
+                <span class="fill" ng-style="{ 'height': pomodoro.fillHeight, 'background': pomodoro.fillColor }"></span>
+            </div>
+                <div>{{ pomodoro.fillHeight }}</div>
+            <br/>
+            <div>{{ pomodoro.sessionStatus }}</div>
+            <button ng-click="pomodoro.toggleTimer()"> {{ pomodoro.isTimerRunning ? "Stop" : "Start" }} </button>
+        </div>
+        <div class="notebook col-xs-12 col-md-6" ng-controller="NoteBookController as noteBook">
+            <span class="date"> {{ noteBook.date | date: 'medium' }} </span>
+            <ol>
+                <li ng-repeat="box in noteBook.textAreas" >
+                    <textarea type="text" ng-model="box.text"></textarea>
+                </li>
+            </ol>
+        </div>
+    </div>
 
-<div class="container">
-    <div></div>
-
-</div>
+</body>
 <script src="/bower_components/angular/angular.min.js"></script>
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-</body>
+<script src="/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+<script src="/pomodoroApp.js"></script>
+<script src="/controllers/pomodoroController.js"></script>
+<script src="/controllers/noteBookController.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+
+
 </html>
