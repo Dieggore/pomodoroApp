@@ -1,37 +1,46 @@
 html{
-  background-color: grey;
-  height:100%;
+  background-color: #ffffff;
+  height: 100%;
 }
 
 body{
-  width:50%;
-  height:100%;
-  margin:0 auto;
+  max-width:800px;
+  margin: 0 auto;
 }
 
 header{
-  text-align:center;
+  text-align: center;
   height: 10px;
 
   h1 {
-    margin-bottom:1em;
+    margin-bottom: 1em;
   }
 
 }
+
+.maxWidthContainer {
+  margin: auto;
+  padding:1em;
+}
+
+.longBreakBtn {
+  margin-left: 3px;
+}
+
 .round{
   display: flex;
   align-items: center;
   justify-content: center;
-  height:250px;
-  width:250px;
-  border-radius:50%;
-  background-color:indianred;
-  margin:auto;
-  position:relative;
+  height: 250px;
+  max-width: 250px;
+  border-radius: 50%;
+  background-color: indianred;
+  margin: auto;
+  position: relative;
   font-size: 4em;
   cursor: pointer;
   z-index: 20;
-  color:cornsilk;
+  color: cornsilk;
   overflow: hidden;
 }
 
@@ -48,7 +57,7 @@ header{
 }
 
 .fill {
-  position:absolute;
+  position: absolute;
   content: '';
   background: greenyellow;
   bottom: 0;
@@ -63,23 +72,34 @@ header{
 }
 
 .notebook {
-  text-align:center;
+  text-align: center;
+
+  ol {
+    padding: 0;
+  }
 
   li {
-    margin-bottom:.5em;
-
+    padding: 0px;
+    margin-bottom: 0.5em;
+    list-style: none;
     textarea {
-      padding:.5em;
-      border-radius:1em;
+      padding: 0.5em;
+      border-radius: 1em;
       vertical-align: middle;
       margin: 0px;
-      height: 50px;
-      width: 250px;
+      height: 100px;
+      width: 100%;
     }
   }
   .date {
-    margin-bottom:1em;
-    display:inline-block;
+    margin-bottom: 1em;
+    display: inline-block;
   }
+}
+
+.tickVolume {
+  border:1px dotted black;
+  border-radius: .3em;
+  padding:.5em;
 }
 

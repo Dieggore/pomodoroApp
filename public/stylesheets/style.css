@@ -1,10 +1,9 @@
 html {
-  background-color: grey;
+  background-color: #ffffff;
   height: 100%; }
 
 body {
-  width: 50%;
-  height: 100%;
+  max-width: 800px;
   margin: 0 auto; }
 
 header {
@@ -13,12 +12,19 @@ header {
   header h1 {
     margin-bottom: 1em; }
 
+.maxWidthContainer {
+  margin: auto;
+  padding: 1em; }
+
+.longBreakBtn {
+  margin-left: 3px; }
+
 .round {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 250px;
-  width: 250px;
+  max-width: 250px;
   border-radius: 50%;
   background-color: indianred;
   margin: auto;
@@ -55,17 +61,26 @@ header {
 
 .notebook {
   text-align: center; }
+  .notebook ol {
+    padding: 0; }
   .notebook li {
-    margin-bottom: .5em; }
+    padding: 0px;
+    margin-bottom: 0.5em;
+    list-style: none; }
     .notebook li textarea {
-      padding: .5em;
+      padding: 0.5em;
       border-radius: 1em;
       vertical-align: middle;
       margin: 0px;
-      height: 50px;
-      width: 250px; }
+      height: 100px;
+      width: 100%; }
   .notebook .date {
     margin-bottom: 1em;
     display: inline-block; }
+
+.tickVolume {
+  border: 1px dotted black;
+  border-radius: .3em;
+  padding: .5em; }
 
 /*# sourceMappingURL=style.css.map */

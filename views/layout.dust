@@ -10,23 +10,62 @@
     <header class="row">
         <h1 class="col-xs-12">Time manager</h1>
     </header>
-    <div class="row">
+    <div class="row maxWidthContainer">
+        {! POMODORO SECTION !}
         <div class="pomodoroSection col-xs-12 col-md-6" ng-controller="PomodoroController as pomodoro">
+            <br/>
+            <button class="btn btn-danger" ng-click="pomodoro.setSessionType('pomodoro')"> Pomodoro </button>&nbsp;
+            <button class="btn btn-success" ng-click="pomodoro.setSessionType('break')"> Break </button>
+            <button class="btn btn-primary longBreakBtn" ng-click="pomodoro.setSessionType('longbreak')"> Long break </button>
+            <br/>
+            <br/>
             <div class="round">{{ pomodoro.timeLeft }}
                 <span class="fill" ng-style="{ 'height': pomodoro.fillHeight, 'background': pomodoro.fillColor }"></span>
             </div>
                 <div>{{ pomodoro.fillHeight }}</div>
             <br/>
             <div>{{ pomodoro.sessionStatus }}</div>
-            <button ng-click="pomodoro.toggleTimer()"> {{ pomodoro.isTimerRunning ? "Stop" : "Start" }} </button>
+            <button class="btn btn-primary" ng-click="pomodoro.toggleTimer()"> {{ pomodoro.isTimerRunning ? "Stop" : "Start" }} </button>
         </div>
+        {! NOTE BOOK SECTION !}
         <div class="notebook col-xs-12 col-md-6" ng-controller="NoteBookController as noteBook">
-            <span class="date"> {{ noteBook.date | date: 'medium' }} </span>
             <ol>
                 <li ng-repeat="box in noteBook.textAreas" >
-                    <textarea type="text" ng-model="box.text"></textarea>
+                    <textarea type="text"
+                              ng-model="box.text"
+                              ng-change="noteBook.saveToSessionStorage()"
+                              ng-attr-placeholder="Write important task to complete">
+                    </textarea>
                 </li>
             </ol>
+        </div>
+
+        <div class="col-xs-12 col-md-12" ng-controller="PomodoroController as pomodoro">
+
+            <h5>Session counts for: <span class="date"> {{ pomodoro.date | date: 'medium' }} </span></h5>
+            <table class="table table-sm table-bordered ">
+                <thead>
+                    <tr>
+                        <th>Pomodoros</th>
+                        <th>Breaks</th>
+                        <th>Long Breaks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ pomodoro.sessionCounter.pomodoro }}</td>
+                        <td>{{ pomodoro.sessionCounter.break }}</td>
+                        <td>{{ pomodoro.sessionCounter.longbreak }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tickVolume">
+                Tick volume: {{ pomodoro.tickVolume * 10 | number: 0 }}
+                &nbsp;&nbsp;
+                <button class="btn btn-default" ng-click="pomodoro.downVolume()"> - </button>&nbsp;
+                <button class="btn btn-default" ng-click="pomodoro.upVolume()"> + </button>
+                <br/>
+            </div>
         </div>
     </div>
 
@@ -39,7 +78,6 @@
 <script src="/controllers/noteBookController.js"></script>
 <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.26/howler.min.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.15.0/lodash.min.js"></script>
 </html>
