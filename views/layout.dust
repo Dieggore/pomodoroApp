@@ -78,6 +78,6 @@
 <script src="/controllers/noteBookController.js"></script>
 <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.26/howler.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.0/howler.js"></script>
 <script src="https://cdn.jsdelivr.net/lodash/4.15.0/lodash.min.js"></script>
 </html>

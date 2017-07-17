@@ -5,12 +5,12 @@ function PomodoroCore( $interval ){
 
     var vm = this;
     var ringSound = new Howl({
-        urls: ['http://reneroth.org/projects/codepen/pomodoro_ring.ogg', 'http://reneroth.org/projects/codepen/pomodoro_ring.mp3'],
+        src: ['http://reneroth.org/projects/codepen/pomodoro_ring.ogg', 'http://reneroth.org/projects/codepen/pomodoro_ring.mp3'],
         volume: vm.ringVolume
     });
 
     var tickSound = new Howl({
-        urls: ['http://reneroth.org/projects/codepen/pomodoro_tick.ogg', 'http://reneroth.org/projects/codepen/pomodoro_tick.mp3'],
+        src: ['http://reneroth.org/projects/codepen/pomodoro_tick.ogg', 'http://reneroth.org/projects/codepen/pomodoro_tick.mp3'],
         loop: true,
         volume: 0.1
     });
